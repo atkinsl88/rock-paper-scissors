@@ -15,15 +15,15 @@ var compare = function(choice1, choice2) {
     return result = ["The result is a tie!", "tie"];
   } else if (choice1 === 'rock') {
     if (choice2 === 'scissors') {
-      return result = ["Rock wins", "User"];
+      return result = ["Rock wins", "user"];
     } else if (choice2 === 'paper') {
-      return result = ["Paper wins", "Computer"];
+      return result = ["Paper wins", "comp"];
     }
   } else if (choice1 === 'paper') {
     if (choice2 === 'rock') {
       return result = ["Paper wins", "user"];
     } else if (choice2 === 'scissors') {
-      return result = ["Scissors win", "Comp"];
+      return result = ["Scissors win", "comp"];
     }
   } else if (choice1 === 'scissors') {
     if (choice2 === 'rock') {
@@ -44,54 +44,30 @@ var computerRoll = function() {
   } else if (computerChoice > 0.66) {
     return result = 'scissors'
   }
+  return computerChoice;
 }
 
 var userChoice = function(choice) {
 
   var userChoice = choice;
   var computerChoice = computerRoll();
-
-  // Display the result and winner
-  console.log(compare(userChoice, computerChoice));
-  console.log(result[0], result[1])
+  var compareChoice = compare(userChoice, computerChoice)
+  console.log(compare(userChoice, computerChoice))
 
   var getResult = (function() {
     if (result[1] === "user") {
       userScore++;
-      console.log("7a. Add one to user! userScore is now " + userScore);
       return userScore;
     } else if (result[1] === "comp") {
       compScore++;
-      console.log("7b. Add one to computer! compScore is now " + compScore);
       return compScore;
     } else if (result[1] === "tie") {
-      console.log("7c. It was a tie!")
+      console.log('Its a tie')
     }
   } () );
-  console.log("User Score is now " + userScore + ", while Computer Score is now " + compScore + ".");
-
-
-  elUserPick.textContent = choice;
-  elCompPick.textContent = computerChoice;
-  elOverallResult.textContent = result[0];
   elUserScore.textContent = userScore;
   elCompScore.textContent = compScore;
-
-
+  elUserPick.textContent = choice;
+  elCompPick.textContent = computerChoice;
+  elOverallResult.textContent = compareChoice;
 }
-
-
-var rockBox = document.getElementById('rock');
-rockBox.addEventListener('click', function() {
-  userChoice("rock");
-}, false);
-
-var paperBox = document.getElementById('paper');
-paperBox.addEventListener('click', function() {
-  userChoice("paper");
-}, false);
-
-var scissorBox = document.getElementById('scissors');
-scissorBox.addEventListener('click', function() {
-  userChoice("scissors");
-}, false);

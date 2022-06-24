@@ -7,6 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Source+Sans+Pro&display=swap" rel="stylesheet">
   <title>Document</title>
 </head>
 
@@ -16,20 +19,26 @@
 
     <div class="introduction">
       <h1>Rock, Papper, Scissors</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non risque sapien quam, sit amet sollicitudin orci convallis at.</p>
+      <p>Welcome to Rock, Paper, Scissors. Play against the computer and the highest score wins.</p>
+      <ol>
+        <li>Pick one of the three buttons under Selection.</li>
+        <li>The computer selection will be automatically generated once you pick.</li>
+        <li>Whoever wins, will have their score updated.</li>
+        <li>Continue clicking buttons to keep playing.</li>
+      </ol>
     </div>
 
     <div class="game">
-      <h2>User Selection</h2>
+      <h2>Selection</h2>
       <div>
         <button id="rock" onClick="userChoice(this.id)">Rock</button>
         <button id="paper" onClick="userChoice(this.id)">Paper</button>
         <button id="scissors" onClick="userChoice(this.id)">Scissors</button>
       </div>
       <div>
-        <h3>User Picked: <span id="userPick"></span></h3>
-        <h3>Computer Picked: <span id="compPick"></span></h3>
-        <h3>Winner: <span id="overallResult"></span></h3>
+        <p>User Picked: <span id="userPick"></span></p>
+        <p>Computer Picked: <span id="compPick"></span></p>
+        <p>Winner: <span id="overallResult"></span></p>
       </div>
     </div>
 
@@ -38,6 +47,7 @@
       <p>Player One: <span id="userScore"></span></p>
       <p>Computer: <span id="compScore"></span></p>
     </div>
+
   </div>
   
 </body>
