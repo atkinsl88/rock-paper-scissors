@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 2rem;
+}
+
+.introduction {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  width: 33%;
+  padding: 1rem;
+  border: 1px solid black;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  width: 33%;
+  padding: 1rem;
+  border: 1px solid black;
+}
+
+.scores {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  width: 33%;
+  padding: 1rem;
+  border: 1px solid black;
+}

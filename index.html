@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="introduction">
+      <h1>Rock, Papper, Scissors</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non risque sapien quam, sit amet sollicitudin orci convallis at.</p>
+    </div>
+
+    <div class="game">
+      <h2>User Selection</h2>
+      <div>
+        <button id="rock" onClick="userChoice(this.id)">Rock</button>
+        <button id="paper" onClick="userChoice(this.id)">Paper</button>
+        <button id="scissors" onClick="userChoice(this.id)">Scissors</button>
+      </div>
+      <div>
+        <h3>User Picked: <span id="userPick"></span></h3>
+        <h3>Computer Picked: <span id="compPick"></span></h3>
+        <h3>Winner: <span id="overallResult"></span></h3>
+      </div>
+    </div>
+
+    <div class="scores">
+      <h2>Scores</h2>
+      <p>Player One: <span id="userScore"></span></p>
+      <p>Computer: <span id="compScore"></span></p>
+    </div>
+  </div>
+  
+</body>
+
+<script src="js/scripts2.js" type="text/javascript"></script>
+
+</html>
