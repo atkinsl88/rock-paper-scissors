@@ -1,44 +1,60 @@
+// Initialize the user and computer scores and set them to 0.
 var userScore = 0;
 var compScore = 0;
 
-var userScore = document.getElementById('userScore');
-var compScore = document.getElementById('compScore');
-var userPick = document.getElementById('userPick');
-var compPick = document.getElementById('compPick');
-var overallResult = document.getElementById('overallResult');
+// DOM elements for later on
+var elUserScore = document.getElementById('userScore');
+var elCompScore = document.getElementById('compScore');
+var elUserPick = document.getElementById('userPick');
+var elCompPick = document.getElementById('compPick');
+var elOverallResult = document.getElementById('overallResult');
 
-// Handle compare results
-var compare = function choices(choice1, choice2) {
+// Create a function to compare the answers
+var compare = function(choice1, choice2) {
   if (choice1 === choice2) {
-    console.log('This is a tie');
-  } else if (choice1 === "rock") {
-    if (choice2 === "scissors") {
-      console.log("Rock beats scissors");
-    } else if (choice2 === "paper") {
-      console.log("Paper beats rock");
+    return result = ["The result is a tie!", "tie"];
+  } else if (choice1 === 'rock') {
+    if (choice2 === 'scissors') {
+      return result = ["Rock wins", "User"];
+    } else if (choice2 === 'paper') {
+      return result = ["Paper wins", "Computer"];
     }
-  } else if (choice1 === "paper") {
-    if (choice2 === "rock") {
-      console.log("Paper beats rock");
-    } else if (choice2 === "scissors") {
-      console.log("Scissors beats paper");
+  } else if (choice1 === 'paper') {
+    if (choice2 === 'rock') {
+      return result = ["Paper wins", "user"];
+    } else if (choice2 === 'scissors') {
+      return result = ["Scissors win", "Comp"];
     }
-  } else if (choice1 === "scissors") {
-    if (choice2 === "rock") {
-      console.log("Rock beats scissors");
-    } else if (choice2 === "paper") {
-      console.log("Scissors beats paper");
+  } else if (choice1 === 'scissors') {
+    if (choice2 === 'rock') {
+      return result = ["Rock wins", "comp"];
+    } else if (choice2 === 'paper') {
+      return result = ["Scissors win", "user"];
     }
   }
 }
 
-// User choice
+// Create a function to handle the Computers choice
+var computerRoll = function() {
+  var computerChoice = Math.random();
+  if (computerChoice < 0.33) {
+    return result = 'rock'
+  } else if (computerChoice <= 0.66) {
+    return result = 'paper'
+  } else if (computerChoice > 0.66) {
+    return result = 'scissors'
+  }
+}
+
 var userChoice = function(choice) {
+
   var userChoice = choice;
-  console.log("1. User Choice is " + choice);
   var computerChoice = computerRoll();
+
+  // Display the result and winner
   console.log(compare(userChoice, computerChoice));
-  console.log("6. " + result[0]);
+  console.log(result[0], result[1])
+
   var getResult = (function() {
     if (result[1] === "user") {
       userScore++;
@@ -53,38 +69,29 @@ var userChoice = function(choice) {
     }
   } () );
   console.log("User Score is now " + userScore + ", while Computer Score is now " + compScore + ".");
-  userScore.textContent = userScore;
-  compScore.textContent = compScore;
-  userPick.textContent = userChoice;
-  compPick.textContent = computerChoice;
-  overallResult.textContent = result[0];
+
+
+  elUserPick.textContent = choice;
+  elCompPick.textContent = computerChoice;
+  elOverallResult.textContent = result[0];
+  elUserScore.textContent = userScore;
+  elCompScore.textContent = compScore;
+
+
 }
 
-// Handle compute choice
-var computerRoll = function() {
-  var computerChoice = Math.random();
-  if (computerChoice < 0.33) {
-    // console.log('Comp picks Rock')
-  } else if (computerChoice <= 0.66) {
-    // console.log('Comp picks Paper')
-  } else if (computerChoice > 0.66) {
-    // console.log('Comp picks Scissors')
-  }
-}
-computerRoll()
 
-// Handle buttons
-var rockBtn = document.getElementById('rock');
-  rockBtn.addEventListener('click', function() {
-    userChoice("rock");
-})
+var rockBox = document.getElementById('rock');
+rockBox.addEventListener('click', function() {
+  userChoice("rock");
+}, false);
 
-var paperBtn = document.getElementById('paper');
-  paperBtn.addEventListener('click', function() {
-    userChoice("paper");
-})
+var paperBox = document.getElementById('paper');
+paperBox.addEventListener('click', function() {
+  userChoice("paper");
+}, false);
 
-var scissorsBtn = document.getElementById('scissors');
-  scissorsBtn.addEventListener('click', function() {
-    userChoice("scissors");
-})
+var scissorBox = document.getElementById('scissors');
+scissorBox.addEventListener('click', function() {
+  userChoice("scissors");
+}, false);
